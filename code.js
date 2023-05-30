@@ -58,18 +58,23 @@ class Pokemon {
   }
   evolve = () => {
     let image = document.getElementById(`${this.pokemonID}`);
-    if (this.imgIndex >= this.imgPath.length - 1) {
-      image.src = this.imgPath[this.imgPath.length - 1];
-    } else {
-      this.imgIndex += 1;
-      image.src = this.imgPath[this.imgIndex];
-    }
+    let evolveChance = Math.random() * 100;
+    toggleShake(image);
+    if (evolveChance <= 20) {
+      if (this.imgIndex >= this.imgPath.length - 1) {
+       image.src = this.imgPath[this.imgPath.length - 1];
+     } else {
+       this.imgIndex += 1;
+       image.src = this.imgPath[this.imgIndex];
+     }
+   }
   }
   render() {
     let imgElement = document.createElement("img");
     document.body.append(imgElement);
     imgElement.src = "images/pokeball.png";
     imgElement.id = `${this.pokemonID}`;
+    imgElement.classList = "shake1"
     imgElement.style.width = "25%"
   }
   onclick() {
