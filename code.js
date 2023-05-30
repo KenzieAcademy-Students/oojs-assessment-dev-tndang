@@ -19,15 +19,24 @@ class Flower {
   constructor() { 
     this.imgPath = [`images/flower/flower0.png`, `images/flower/flower1.png`, `images/flower/flower2.png`];
     this.imgIndex = 0;
-    this.imgSRC = document.querySelector('img');
+  }
+  grow() {
+    let image = document.getElementById("flower");
+    if (this.imgIndex < this.imgPath.length) {
+      this.imgIndex += 1;
+      image.src = this.imgPath[this.imgIndex];
+    }
   }
   render() {
     let imgElement = document.createElement("img");
     document.body.append(imgElement);
-    imgElement.src = this.imgPath[0];
+    imgElement.src = this.imgPath[this.imgIndex];
+    imgElement.id = "flower";
+    imgElement.alt = "A Flower Grows"
   }
 }
 
 let flower = new Flower();
 
 flower.render();
+flower.grow();
