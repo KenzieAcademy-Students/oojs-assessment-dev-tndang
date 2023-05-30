@@ -49,3 +49,37 @@ flower1.render();
 flower1.onclick();
 flower2.render();
 flower2.onclick()
+
+class Pokemon {
+  constructor (imgPath, pokemonID) {
+    this.imgPath = imgPath;
+    this.imgIndex = -1;
+    this.pokemonID = pokemonID;
+  }
+  evolve = () => {
+    let image = document.getElementById(`${this.pokemonID}`);
+    if (this.imgIndex >= this.imgPath.length - 1) {
+      image.src = this.imgPath[this.imgPath.length - 1];
+    } else {
+      this.imgIndex += 1;
+      image.src = this.imgPath[this.imgIndex];
+    }
+  }
+  render() {
+    let imgElement = document.createElement("img");
+    document.body.append(imgElement);
+    imgElement.src = "images/pokeball.png";
+    imgElement.id = `${this.pokemonID}`;
+    imgElement.style.width = "25%"
+  }
+  onclick() {
+    let image = document.getElementById(`${this.pokemonID}`);
+    image.onclick = this.evolve;
+  }
+}
+
+let charmanderImgPath = [`images/charmander/charmander0.png`, `images/charmander/charmander1.png`, `images/charmander/charmander2.png`];
+let charmander = new Pokemon(charmanderImgPath, "charmandder");
+
+charmander.render()
+charmander.onclick();
