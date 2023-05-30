@@ -75,7 +75,7 @@ class Pokemon {
     imgElement.src = "images/pokeball.png";
     imgElement.id = `${this.pokemonID}`;
     imgElement.classList = "shake1"
-    imgElement.style.width = "25%"
+    imgElement.style.height = "175px"
   }
   onclick() {
     let image = document.getElementById(`${this.pokemonID}`);
@@ -84,7 +84,11 @@ class Pokemon {
 }
 
 let charmanderImgPath = [`images/charmander/charmander0.png`, `images/charmander/charmander1.png`, `images/charmander/charmander2.png`];
-let charmander = new Pokemon(charmanderImgPath, "charmandder");
+let cyndaquilImgPath = ['images/cyndaquil/cyndaquil.png', 'images/cyndaquil/quilava.png', 'images/cyndaquil/typhlosion.png']
+let charmander = new Pokemon(charmanderImgPath, "charmander");
+let cyndaquil = new Pokemon(cyndaquilImgPath, "cyndaquil");
 
 charmander.render()
 charmander.onclick();
+cyndaquil.render();
+cyndaquil.onclick();
