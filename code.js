@@ -20,9 +20,11 @@ class Flower {
     this.imgPath = [`images/flower/flower0.png`, `images/flower/flower1.png`, `images/flower/flower2.png`];
     this.imgIndex = 0;
   }
-  grow() {
+  grow = () => {
     let image = document.getElementById("flower");
-    if (this.imgIndex < this.imgPath.length) {
+    if (this.imgIndex >= this.imgPath.length - 1) {
+      image.src = this.imgPath[this.imgPath.length - 1];
+    } else {
       this.imgIndex += 1;
       image.src = this.imgPath[this.imgIndex];
     }
@@ -32,11 +34,14 @@ class Flower {
     document.body.append(imgElement);
     imgElement.src = this.imgPath[this.imgIndex];
     imgElement.id = "flower";
-    imgElement.alt = "A Flower Grows"
+  }
+  onclick() {
+    let image = document.getElementById("flower");
+    image.onclick = this.grow;
   }
 }
 
 let flower = new Flower();
 
 flower.render();
-flower.grow();
+flower.onclick();
