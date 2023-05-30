@@ -16,12 +16,13 @@ const main = document.querySelector("main");
 
 // Your Code Here
 class Flower {
-  constructor() { 
+  constructor(flowerID) { 
     this.imgPath = [`images/flower/flower0.png`, `images/flower/flower1.png`, `images/flower/flower2.png`];
     this.imgIndex = 0;
+    this.flowerID = flowerID;
   }
   grow = () => {
-    let image = document.getElementById("flower");
+    let image = document.getElementById(`${this.flowerID}`);
     if (this.imgIndex >= this.imgPath.length - 1) {
       image.src = this.imgPath[this.imgPath.length - 1];
     } else {
@@ -33,15 +34,18 @@ class Flower {
     let imgElement = document.createElement("img");
     document.body.append(imgElement);
     imgElement.src = this.imgPath[this.imgIndex];
-    imgElement.id = "flower";
+    imgElement.id = `${this.flowerID}`;
   }
   onclick() {
-    let image = document.getElementById("flower");
+    let image = document.getElementById(`${this.flowerID}`);
     image.onclick = this.grow;
   }
 }
 
-let flower = new Flower();
+let flower1 = new Flower("flower1");
+let flower2 = new Flower("flower2");
 
-flower.render();
-flower.onclick();
+flower1.render();
+flower1.onclick();
+flower2.render();
+flower2.onclick()
