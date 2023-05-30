@@ -1,5 +1,7 @@
 /* Write your CSS Here. */
 body {
+  width: 800px;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -8,6 +10,7 @@ body {
 }
 img {
   margin: 20px;
+  padding: 10px;
 } 
 
 
