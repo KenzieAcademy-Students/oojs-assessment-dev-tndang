@@ -1,5 +1,17 @@
 /* Write your CSS Here. */
- 
+body {
+  width: 800px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+img {
+  margin: 20px;
+  padding: 10px;
+} 
 
 
 /* ----- Shake Animation --------------------------------- */
